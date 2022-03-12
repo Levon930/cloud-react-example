@@ -1,0 +1,7 @@
+mutation AddFolderToCompanyShared($input: AddFolderToCompanySharedInput!) {
+  addFolderToCompanyShared(input: $input) {
+    owner_id
+    public_name
+    folder_hash
+  }
+}

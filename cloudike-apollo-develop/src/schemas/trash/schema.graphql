@@ -1,0 +1,40 @@
+input TrashFilters {
+  dirsOnly: Boolean!
+  extra: Boolean!
+  offset: Int!
+  limit: Int!
+}
+
+type TrashFile {
+  author: Int
+  authorLang: String
+  authorName: String
+  bytes: Int
+  checksum: String
+  #don't know the interface. update later
+  # client_data: {}
+  created: Int
+  isDeleted: Boolean
+  #extradata: {}
+  folder: Boolean
+  icon: String
+  isFavorite: Boolean
+  isTrash: Boolean
+  mimeType: String
+  modified: Float
+  owner: Int
+  ownerName: String
+  path: String
+  publicHash: String
+  version: Int
+  name: String
+}
+
+type ReturnTrash {
+  content: [TrashFile!]
+  isLastPage: Boolean
+}
+
+extend type Query {
+  trash(input: TrashFilters!): ReturnTrash!
+}

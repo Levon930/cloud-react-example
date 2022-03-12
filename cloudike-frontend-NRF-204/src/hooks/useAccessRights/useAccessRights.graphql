@@ -1,0 +1,8 @@
+query getUserAccessRights{
+  getAccessLevel{
+    companyId
+    role
+    userid
+    ownerId
+  }
+}

@@ -1,0 +1,11 @@
+query Trash($input: TrashFilters!) {
+  trash(input: $input) {
+    content {
+      bytes
+      folder
+      modified
+      name
+    }
+    isLastPage
+  }
+}

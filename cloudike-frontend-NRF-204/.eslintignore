@@ -1,0 +1,29 @@
+!.eslintrc.json
+
+.DS_Store
+
+
+#IDE
+.idea
+.vscode
+
+# dependencies
+**/node_modules/*
+config-overrides.js
+tsconfig.json
+tsconfig.paths.json
+
+# testing
+/coverage
+
+# production
+**/dist/*
+**/build/*
+
+src/serviceWorker.ts
+src/generated/*
+
+npm-debug.log*
+debug.log*
+yarn-debug.log*
+yarn-error.log*

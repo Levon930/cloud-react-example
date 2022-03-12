@@ -1,0 +1,28 @@
+{
+  "header": {
+    "popover":{
+      "profile": {
+        "settings": "Settings",
+        "team": "Team management",
+        "plan": "Change plan"
+      }
+    }
+  },
+  "footer": {
+    "popover":{
+      "info": {
+        "downloadAccount": "Download user guide",
+        "viewUser": "View user tip"
+      },
+      "more": {
+        "downloadClient": "Download PC client",
+        "website": "Website",
+        "blog": "Blog",
+        "contact": "Contact us",
+        "support": "Remote support"
+      }
+    }
+  }
+}
+
+  

@@ -1,0 +1,42 @@
+scalar Upload
+
+"Date in YYYY-MM-DD format"
+scalar Date
+
+"DateTime in RFC3339 (yyyy-MM-dd'T'HH:mm:ss'Z') format"
+scalar DateTime
+
+directive @convertFilePath on FIELD_DEFINITION | INPUT_FIELD_DEFINITION
+
+type Query {
+  _: String
+}
+
+type Mutation {
+  _: String
+}
+
+input Pagination {
+  page: Int!
+  itemsPerPage: Int!
+}
+
+enum SortOrder {
+  asc
+  desc
+}
+
+input Sort {
+  orderBy: String!
+  order: SortOrder!
+}
+
+type CommonResponse {
+  code: String!
+  description: String!
+}
+
+input CommonListInput {
+  sort: Sort
+  pagination: Pagination!
+}

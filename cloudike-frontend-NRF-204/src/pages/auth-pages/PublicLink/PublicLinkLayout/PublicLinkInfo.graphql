@@ -1,0 +1,12 @@
+query PublicLinkInfo($input: PublicLinksInfoInput!) {
+  publicLinkInfo(input: $input) {
+    password
+    created
+    expires
+    access_rights
+    author_lang
+    notify
+    download_max
+    download_count
+  }
+}

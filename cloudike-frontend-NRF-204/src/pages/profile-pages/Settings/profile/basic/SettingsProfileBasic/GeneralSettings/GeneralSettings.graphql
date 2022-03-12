@@ -1,0 +1,27 @@
+mutation UpdateAccountBasicSettings(
+  $userId: Int!,
+  $name: String,
+  $alertEmail: String,
+  $disableAlert: Boolean,
+  $lang: String) {
+  updateAccountBasicSettings(input: {
+    userId: $userId,
+    name: $name,
+    alertEmail: $alertEmail,
+    disableAlert: $disableAlert,
+    lang: $lang,
+  }) {
+    code
+    description
+  }
+}
+
+query AccountBasicSettings {
+  getUser {
+    userid
+    name
+    alert_email
+    disable_alert
+    lang
+  }
+}

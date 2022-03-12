@@ -1,0 +1,63 @@
+{
+  "titles": {
+    "modalTitle": "Payment method",
+    "planTitle": "Choose a plan",
+    "planDescriptionFirstPart": "If you want to use a large storage more then",
+    "planDescriptionSecondPart": " 300GB, ",
+    "planDescriptionThirdPart": "please contact ",
+    "planCustomerService": "customer service",
+    "billingTitle": "Choose billing cycle",
+    "cardTitle": "Payment card information",
+    "inputs": {
+      "CardNumber": "Card number",
+      "ExpirationDate": "Expiration date",
+      "Password": "Password",
+      "Birth": "Birth",
+      "BusinessNumber": "Business number"
+    }
+  },
+  "validationErrors": {
+    "mustChooseOne": "You must choose one",
+    "acceptTerms": "You must accept terms"
+  },
+  "availabilityNames": {
+    "Client": "PC Client",
+    "WebDrive": "WebDrive",
+    "Versioning": "File versioning",
+    "Preview": "File preview",
+    "Watermark": "Watermark",
+    "Comment": "Comment",
+    "Log": "Check activity log",
+    "Permission": "Manage permission by folder"
+  },
+  "descriptionOfBilling": {
+    "Annual": "Annual billing description",
+    "Monthly": "Monthly billing description"
+  },
+  "descriptionOfPlans": {
+    "Slim": "Slim plan description",
+    "Basic": "Basic plan description",
+    "Standard": "Standard plan description",
+    "Professional": "Professional plan description"
+  },
+  "priceDescription": "The price is Korean currently including VAT.",
+  "planTypes": {
+    "Slim": "Slim",
+    "Basic": "Basic",
+    "Standard": "Standard",
+    "Professional": "Professional"
+  },
+  "billingName": "billing",
+  "billingTypes": {
+    "Annual": "Annual",
+    "Monthly": "Monthly"
+  },
+  "cardTypes": {
+    "Domestic": "Domestic",
+    "Foreign": "Foreign",
+    "Named": "Named card",
+    "Anonymous": "Anonymous card"
+  },
+  "acceptLabel": "I accept the terms and conditions",
+  "submit": "Buy now"
+}

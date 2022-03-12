@@ -1,0 +1,183 @@
+query CompanyUsers($search: String, $group_id: Int) {
+  companyUsers(search: $search, group_id: $group_id) {
+    content {
+      name
+      storage_size
+      role
+      last_login
+      expired
+      is_active
+      can_download
+      can_print
+      user_mobile_restriction
+      pc_can_download
+      use_watermarks
+      hard_quota_size
+      ip_restriction
+      logins
+      userid
+      allowed_ips
+      login
+      status
+    }
+  }
+}
+
+mutation CreateUser(
+  $name: String!
+  $email: String!
+  $password: String!
+  $company_id: Int!
+  $lang: String!
+  $can_download: Boolean!
+  $pc_can_download: Boolean!
+  $can_print: Boolean!
+  $use_watermarks: Boolean!
+  $user_mobile_restriction: Boolean!
+  $expired: Float
+  $permission: Boolean!
+) {
+  createUser(
+    input: {
+      name: $name
+      email: $email
+      password: $password
+      company_id: $company_id
+      lang: $lang
+      can_download: $can_download
+      pc_can_download: $pc_can_download
+      can_print: $can_print
+      use_watermarks: $use_watermarks
+      user_mobile_restriction: $user_mobile_restriction
+      expired: $expired
+      permission: $permission
+    }
+  ) {
+    company_id
+    company_name
+    domain
+    created
+    expires
+    is_approved
+    login
+    name
+    remote_wipe
+    userid
+    expired
+    can_download
+    can_print
+    pc_can_download
+    use_watermarks
+  }
+}
+
+mutation ChangeUserPassword($user_id: Int!, $new_password: String!) {
+  changeUserPassword(input: { user_id: $user_id, new_password: $new_password }) {
+    name
+  }
+}
+
+mutation CompanyUsersDisable($user_id: Int!) {
+  companyUsersDisable(input: { user_id: $user_id }) {
+    nodes {
+      name
+    }
+    failed
+    success
+  }
+}
+
+mutation CompanyUsersEnable($user_id: Int!) {
+  companyUsersEnable(input: { user_id: $user_id }) {
+    nodes {
+      name
+    }
+    failed
+    success
+  }
+}
+
+mutation CompanyChangeUserExpired($user_id: Int!, $expired: Float!) {
+  companyChangeUserExpired(input: { user_id: $user_id, expired: $expired }) {
+    name
+  }
+}
+
+mutation CompanyChangeUsersQuota($user_ids: Int!, $quota_size: Float!) {
+  companyChangeUsersQuota(input: { user_ids: $user_ids, quota_size: $quota_size }) {
+    success
+    failed
+  }
+}
+
+mutation ChangeUserPermission(
+  $use_watermarks: Boolean
+  $can_print: Boolean
+  $can_download: Boolean
+  $pc_can_download: Boolean
+  $user_mobile_restriction: Boolean
+  $ip_restriction: Boolean
+  $allowed_ips: String
+  $user_id: Int!
+) {
+  changeUserPermission(
+    input: {
+      use_watermarks: $use_watermarks
+      can_print: $can_print
+      can_download: $can_download
+      pc_can_download: $pc_can_download
+      user_mobile_restriction: $user_mobile_restriction
+      ip_restriction: $ip_restriction
+      allowed_ips: $allowed_ips
+      user_id: $user_id
+    }
+  ) {
+    name
+    storage_size
+    role
+    last_login
+    expired
+    is_active
+    can_download
+    can_print
+    user_mobile_restriction
+    pc_can_download
+    use_watermarks
+    hard_quota_size
+    ip_restriction
+    logins
+    userid
+  }
+}
+
+mutation InviteUser($login: String!, $lang: String!) {
+  inviteUser(input: { login: $login, lang: $lang }) {
+    email
+  }
+}
+
+mutation companyRemoveUser(
+  $user_id: Int!
+  $transfer_file: Boolean!
+  $need_wipe: String!
+  $transfer_login: String!
+  $auto_remove: Boolean!
+) {
+  companyRemoveUser(
+    input: {
+      user_id: $user_id
+      transfer_file: $transfer_file
+      need_wipe: $need_wipe
+      transfer_login: $transfer_login
+      auto_remove: $auto_remove
+    }
+  ) {
+    task_id
+  }
+}
+
+mutation companyCancelUserRemoving($user_id: Int!) {
+  companyCancelUserRemoving(input: { user_id: $user_id }) {
+    userid
+  }
+}

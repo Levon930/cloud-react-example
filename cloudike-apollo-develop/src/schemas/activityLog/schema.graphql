@@ -1,0 +1,109 @@
+enum LogPerson {
+  me
+  other
+}
+
+enum LogType {
+  FOLDER_CREATED
+  FOLDER_DELETED
+  FOLDER_RENAMED
+  SHARE_INVITATION_SENT
+  SHARE_INVITATION_ACCEPTED
+  SHARE_INVITATION_DECLINED
+  SHARE_INVITATION_REVOKED
+  USE_WATERMARKS_CHANGED
+  FOLDER_COLLAB_REMOVED
+  FOLDER_UNSHARED
+  FOLDER_UNDELETED
+  FOLDER_MOVED
+  FILE_CREATED
+  FILE_DELETED
+  FILE_UNDELETED
+  FILE_NEW_CONTENT
+  FILE_VERSION_RESTORED
+  FILE_RENAMED
+  FILE_MOVED
+  SEC_LOGS
+  CAN_PRINT_CHANGED
+  PC_CAN_DOWNLOAD_CHANGED
+  IP_RESTRICTION_CHANGED
+  USER_MOBILE_RESTRICTION_CHANGED
+  CAN_DOWNLOAD_CHANGED
+  COMPANY_ADMIN_RIGHT
+  FOLDER_DOWNLOAD
+  USER_NAME_CHANGED
+  USER_PASSWORD_CHANGED
+  NUMEROUS_FAILED_LOGIN_ATTEMPTS
+  FILE_DOWNLOAD
+}
+
+input LogsFilter {
+  period: Int
+  type: LogType
+  filter_value: String
+  person: LogPerson
+  from_timestamp: Float
+  to_timestamp: Float
+}
+
+input LogsInput {
+  pagination: Pagination!
+  filter: LogsFilter
+}
+
+input LogFileInput {
+  filter: LogsFilter
+}
+
+type LogContent {
+  created: Float
+  modified: Float
+  size: Float
+}
+
+type OldContent {
+  content: LogContent
+}
+
+type Log {
+  collabName: String
+  ownerName: String
+  publicHash: String
+  collabId: String
+  senderIp: String!
+  companyPublished: Boolean
+  shared: Boolean
+  userId: Int
+  deleted: Boolean
+  timestamp: Float!
+  initEventUserName: String!
+  notNeedToSave: Boolean
+  pcCanDownload: Boolean
+  requestId: String
+  canPrint: Boolean
+  canDownload: Boolean
+  useWatermarks: Boolean
+  icon: String
+  folder: Boolean
+  content: LogContent
+  version: String
+  path: String!
+  oldpath: String
+  old: OldContent
+  type: LogType
+  initEventUserId: Int
+}
+
+type LogsResult {
+  logs: [Log]
+  totalItems: Int!
+}
+
+type LogFileResult {
+  url: String
+}
+
+extend type Query {
+  logs(input: LogsInput): LogsResult
+  logFile(input: LogFileInput): LogFileResult
+}

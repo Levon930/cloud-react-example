@@ -1,0 +1,16 @@
+type FavoritesResult {
+  content: [Document!]!
+  isLastPage: Boolean!
+}
+
+extend type Query {
+  favorites(input: CommonListInput!): FavoritesResult!
+}
+
+input SetFavoriteInput {
+    path: String!
+}
+
+extend type Mutation {
+  setFavorite(input: SetFavoriteInput!): Document!
+}

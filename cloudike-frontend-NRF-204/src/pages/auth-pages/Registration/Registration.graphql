@@ -1,0 +1,11 @@
+mutation CreateCompany($lang: String!, $password: String!, $company_name: String!, $company_domain: String!, $name: String!, $email: String!) {
+    createCompany(input: {lang: $lang, password: $password, company_name: $company_name, company_domain: $company_domain, name: $name, email: $email}) {
+      company_id
+      company_name
+      created
+      expires
+      is_approved
+      login
+      userid
+    }
+  }

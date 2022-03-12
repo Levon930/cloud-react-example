@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "src",
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/**/*",
+    "./config-overrides.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
+}

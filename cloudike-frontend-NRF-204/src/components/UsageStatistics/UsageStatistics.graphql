@@ -1,0 +1,7 @@
+query UsageStatistics {
+  usageStatistics {
+    traffic_size
+    quota_size
+    storage_size
+  }
+}

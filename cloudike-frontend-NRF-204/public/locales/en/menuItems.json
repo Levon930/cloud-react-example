@@ -1,0 +1,17 @@
+{
+  "main": {
+    "home": "Home",
+    "myDocuments": "My documents",
+    "sharedDocuments": "Shared documents",
+    "companyFolder": "Company folder",
+    "favorites": "Favorites",
+    "recycleBin": "Recycle bin"
+  },
+  "settings": {
+    "companySettings": "Company settings",
+    "accountSettings": "Account settings",
+    "plan": "Plan",
+    "teamMemberManagement": "Team member management",
+    "activityLog": "Activity log"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "form": {
+    "name": {
+      "label": "Name",
+      "placeholder": "Enter your name",
+      "validation": {
+        "required": "Name is required"
+      }
+    },
+    "company_name": {
+      "label": "Company name",
+      "placeholder": "Enter your Company name",
+      "validation": {
+        "required": "Company name is required"
+      }
+    },
+    "company_domain": {
+      "label": "Company domain",
+      "placeholder": "Enter your Company domain",
+      "validation": {
+        "required": "Company domain is required"
+      }
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "Enter your Email",
+      "validation": {
+        "required": "Email is required",
+        "wrong_format": "Wrong format"
+      }
+    },
+    "password": {
+      "label": "Password",
+      "placeholder": "Enter your password",
+      "validation": {
+        "required": "Password is required",
+        "wrong_format": "Wrong format"
+      }
+    },
+    "confirm_password": {
+      "label": "Confirm Password",
+      "placeholder": "Confirm Password"
+    },
+    "lang": {
+      "label": "Language",
+      "placeholder": "Select Language",
+      "validation": {
+        "required": "Language is required"
+      }
+    },
+    "submit": "Register",
+    "errorMessage" : "Can not realized registration"
+  },
+  "footer": "© 2021 Cloudike, Inc."
+}

@@ -1,0 +1,23 @@
+{
+  "publicLink": {
+    "emptyFolder": "Folder is empty.",
+    "uploadLink": "The link is for uploading",
+    "uploadNotification": "The file list is shown only to the owner of the link an after uploading users other than the owner cannot edit or delete",
+    "uploadComplete": "File upload is complete",
+    "expirationTitle": "The link is out of date",
+    "expirationAlt": "expration date",
+    "expirationText": "Please contacts the administrator",
+    "headerAlt": "logo",
+    "download": "download",
+    "upload": "upload",
+    "password": "password",
+    "passwordTitle": "The link requires a password",
+
+    "buttons": {
+      "signIn": "Sign in",
+      "signUp": "Sign Up",
+      "cancel": "Cancel",
+      "confirm": "Confirm"
+    }
+  }
+}

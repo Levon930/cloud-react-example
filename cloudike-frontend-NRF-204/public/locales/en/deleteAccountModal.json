@@ -1,0 +1,41 @@
+{
+  "form": {
+    "title": "Delete Cloudike account",
+    "firstText": "CLOUDIKE thank you for using Cloudike let us know why you decided to leave Cloudike and we will do our best to improve our service.",
+    "secondText": "If you proceed, all files in your company account will be permanently deleted at midnight (12:00 AM) of today. Do you really want to delete your Cloudike account?",
+    "checkboxGroup": {
+      "option1": "Price",
+      "option2": "Not using",
+      "option3": "Out of business",
+      "option4": "Use of other services",
+      "option5": "Inconvenient to use the service",
+      "option6": "Others"
+    },
+    "otherServise": {
+      "label": "",
+      "placeholder": "What service are you switching to?",
+      "validation": {
+        "required": "Description is required"
+      }
+    },
+    "uncomfortable": {
+      "label": "",
+      "placeholder": "What was uncomfortable while using Cloudike?",
+      "validation": {
+        "required": "Description is required"
+      }
+    },
+    "others": {
+      "label": "",
+      "placeholder": "Please let us know the details",
+      "validation": {
+        "required": "Description is required"
+      }
+    },
+    "next": "Next",
+    "cancel": "Cancel",
+    "delete": "Delete account",
+    "deleteInfo": "Delete account is complete.",
+    "message": "We sincerely appreciate for using Cloudike. We will see you again with better service."
+  }
+}

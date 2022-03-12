@@ -1,0 +1,9 @@
+query getUserPermissions {
+  getUser {
+    can_print
+    pc_can_download
+    can_upload
+    can_download
+    role
+  }
+}

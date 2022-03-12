@@ -1,0 +1,29 @@
+query getGroups {
+  groups {
+    __typename
+    groups {
+      name
+      group_id
+    }
+  }
+}
+
+mutation ShareFolder($input: ShareFolderInput!) {
+  shareFolder(input: $input) {
+    login
+  }
+}
+
+mutation Unshare($path: UnshareFolder!) {
+  unshareFolder(path: $path) {
+    code
+    description
+  }
+}
+
+query GetCollaborators($path: CollaboratorsInput!) {
+  collaborators(path: $path) {
+    owner
+    name
+  }
+}

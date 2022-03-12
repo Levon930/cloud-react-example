@@ -1,0 +1,51 @@
+{
+  "shareModal": {
+    "shareWithTeam": "Share with team member",
+    "shareLink": "Share via link",
+    "designate": "Designate as company folder",
+    "temMembersShare": {
+      "invite": "Invite user to",
+      "notification": "If you share to users,the folder will be visible to the shared users",
+      "warning": "Before sign up/ waiting to accept sharing",
+      "readAndWrite": "read and write",
+      "read": "read",
+      "successMessage": "Folder is unshare",
+      "errorMessages": {
+        "shareFolderMutation": "Can not realized folder share",
+        "unshareMutation": "Folder is not unshare"
+      },
+      "placeholder": "Use it for external sharing",
+      "owner": "Me (Owner)"
+    },
+    "viaLink": {
+      "title": "Public link of",
+      "options": "Detailed options for link settings",
+      "onlyDownload": "Only download",
+      "onlyUpload": "Only upload",
+      "expirationDate": "Set link expiration date",
+      "password": "Set password",
+      "limit": "Limit the number of downloads"
+    },
+    "companyFolder": {
+      "addFolderToCompanyShares": "Your folder is added to company shares",
+      "error": "Your folder is not added to company folders",
+      "info": "If you designate it as company folder, every team members can see if the folder exists, and you cann request sharing."
+    },
+    "buttons": {
+      "invite": "Invite group",
+      "unshare": "Unshare",
+      "stopShare": "Stop share",
+      "share": "Share",
+      "close": "Close",
+      "release": "Release",
+      "apply": "Apply",
+      "delete": "Delete"
+    },
+    "createLink": {
+      "errorMessage": "Can not realized create new link",
+      "errorDeleteMessage": "Link is not deleted",
+      "successDelete": "Link is deleted",
+      "placeholder": "Use it for external sharing"
+    }
+  }
+}

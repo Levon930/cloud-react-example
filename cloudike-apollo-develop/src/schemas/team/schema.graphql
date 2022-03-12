@@ -1,0 +1,262 @@
+type GroupUser {
+  groups: [Int]
+  name: String!
+  storage_size: Float!
+  role: String!
+  last_login: Float!
+  expired: Float!
+  is_active: Boolean!
+  can_download: Boolean!
+  can_print: Boolean!
+  user_mobile_restriction: Boolean!
+  pc_can_download: Boolean!
+  use_watermarks: Boolean!
+  hard_quota_size: Float!
+  logins: [String]!
+  login: String
+}
+
+type ExtraInfo {
+    info: String
+}
+
+type GroupUserInfo {
+    allowed_ips: String
+    company_id: Float
+    can_print: Boolean
+    pc_can_download: Boolean
+    timezone: String
+    extra_info: ExtraInfo
+    can_upload: Boolean
+    is_trial: Boolean
+    user_mobile_restriction: Boolean
+    upload_photo_directory: String
+    can_download: Boolean
+    disable_alert: Boolean
+    last_login: Float
+    role: String
+    need_tutorial: Boolean
+    overhead_size: Float
+    status: String
+    ip_restriction: Boolean
+    registration_date: Float
+    is_active: Boolean
+    storage_size: Float
+    groups: [Int]
+    hard_quota_size: Float
+    deleted_date: Float
+    expired: Float
+    lang: String
+    name: String!
+    type: String
+    region: String
+    userid: Float
+    quota_size: Float
+    alert_email: String
+    use_watermarks: Boolean
+}
+
+type ThisGroupUser {
+  name: String!
+  is_active: Boolean!
+  logins: [String]!
+}
+
+enum UserRole {
+  user
+  company_admin
+}
+
+type CompanyList {
+  name: String
+  storage_size: Float
+  role: UserRole
+  last_login: Float
+  expired: Float
+  is_active: Boolean
+  can_download: Boolean
+  can_print: Boolean
+  user_mobile_restriction: Boolean
+  pc_can_download: Boolean
+  use_watermarks: Boolean
+  hard_quota_size: Float
+  logins: [String]
+  userid: Int!
+  ip_restriction: Boolean
+  allowed_ips: String
+  login: String
+  status: String
+  is_approved: Boolean
+}
+
+type Team {
+  content: [CompanyList!]
+}
+
+type Group {
+  allowed_ips: String
+  can_download: Boolean
+  can_print: Boolean
+  company_id: Int
+  group_id: Int!
+  ip_restriction: Boolean
+  members_count: Int
+  mobile_restriction: Boolean
+  name: String!
+  pc_can_download: Boolean
+  use_watermarks: Boolean
+  users: [GroupUserInfo]!
+}
+
+type Groups {
+  count: Int!
+  groups: [Group!]!
+  limit: Int!
+  offset: Int!
+}
+
+type DisabledUsers {
+  nodes: [User]!
+  failed: Int!
+  success: Int!
+}
+
+type EnabledUsers {
+  nodes: [User]!
+  failed: Int!
+  success: Int!
+}
+
+type ThisGroupUsers {
+  count: Int!
+  users: [CompanyList!]
+  limit: Int!
+  offset: Int!
+}
+
+type FormData {
+  user_ids: Int!
+}
+
+type QuotaChanged {
+  failed: Int!
+  success: Int!
+  nodes: [User]!
+}
+
+type InvitedUser {
+  email: String
+}
+
+type RemovedUser {
+  task_id: String
+}
+
+type RemovedGroup {
+  description: String
+}
+
+type AddedUsers {
+  status: String
+  userid: Int
+}
+
+input CreateGroupInput {
+  name: String!
+}
+
+input RenameGroup {
+  name: String!
+  group_id: Int!
+}
+
+input ChangePasswordInput {
+  user_id: Int!
+  new_password: String!
+}
+
+input Disable {
+  user_id: Int!
+}
+
+input Enable {
+  user_id: Int!
+}
+
+input Expired {
+  user_id: Int!
+  expired: Float!
+}
+
+input AddGroupUsers {
+  groupId: Int!
+  data: [Int!]!
+}
+
+input Quota {
+  user_ids: Int!
+  quota_size: Float!
+}
+
+input Permissions {
+  use_watermarks: Boolean
+  can_print: Boolean
+  can_download: Boolean
+  pc_can_download: Boolean
+  user_mobile_restriction: Boolean
+  ip_restriction: Boolean
+  allowed_ips: String
+  user_id: Int!
+}
+
+input GroupPermissions {
+  use_watermarks: Boolean
+  can_print: Boolean
+  can_download: Boolean
+  pc_can_download: Boolean
+  user_mobile_restriction: Boolean
+  ip_restriction: Boolean
+  allowed_ips: String
+  group_id: Int!
+}
+
+input Invite {
+  lang: String!
+  login: String!
+}
+
+input Remove {
+  user_id: Int!
+  transfer_file: Boolean!
+  need_wipe: String!
+  transfer_login: String!
+  auto_remove: Boolean!
+}
+
+input CancelRemove {
+  user_id: Int!
+}
+
+extend type Query {
+  companyUsers(search: String, group_id: Int): Team!
+  groups: Groups!
+  groupUsers(search: String, group_id: Int!): ThisGroupUsers!
+}
+
+extend type Mutation {
+  createGroup(input: CreateGroupInput!): Group!
+  deleteGroup(input: CreateGroupInput!): RemovedGroup
+  renameGroup(input: RenameGroup!): Group
+  changeGroupPermission(input: GroupPermissions!): Groups
+  changeUserPassword(input: ChangePasswordInput!): User!
+  companyUsersDisable(input: Disable!): DisabledUsers!
+  companyUsersEnable(input: Enable!): EnabledUsers!
+  inviteGroupUsers(input: AddGroupUsers!): [AddedUsers]
+  deleteGroupUsers(input: AddGroupUsers!): [AddedUsers]
+  companyChangeUserExpired(input: Expired!): User!
+  companyChangeUsersQuota(input: Quota!): QuotaChanged!
+  changeUserPermission(input: Permissions!): User!
+  inviteUser(input: Invite): InvitedUser
+  companyRemoveUser(input: Remove): RemovedUser
+  companyCancelUserRemoving(input: CancelRemove): User
+}

@@ -1,0 +1,21 @@
+{
+    "extends": [
+      "eslint:recommended",
+      "plugin:prettier/recommended",
+      "prettier/@typescript-eslint",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "plugins": ["@typescript-eslint", "prettier"],
+    "env": {
+      "node": true,
+      "es6": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "rules": {
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-var-requires": "off",
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off"
+    }
+  }
+  

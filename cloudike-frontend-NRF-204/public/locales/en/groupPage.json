@@ -1,0 +1,98 @@
+{
+  "createTitle": "Grouping users in your enterprise makes it easier to invite (sharing) for specific users.",
+  "createGroup": "Create the group",
+  "toolBar": {
+    "newGroup": "New group",
+    "changeGroupName": "Change group name",
+    "deleteGroup": "Delete group",
+    "detailedAuthority": "Detailed authority"
+  },
+  "download": {
+    "errorMessage": "Can not realized download"
+  },
+  "tableHeader": {
+    "groupName": "Group name",
+    "teamMember": "Team member",
+    "detailedAuthority": "Detailed authority"
+  },
+  "newGroupModal": {
+    "title": "New group",
+    "groupNameInput": {
+      "label": "",
+      "placeholder": "Enter the group name",
+      "validation": {
+        "required": "Group name is required"
+      }
+    },
+    "buttons": {
+      "cancel": "Cancel",
+      "submit": "Create group"
+    },
+    "errorMessage": "Can not realized to create group"
+  },
+  "deleteGroup": {
+    "title": "Delete group",
+    "description": "Are you sure to delete group",
+    "buttons": {
+      "cancel": "Cancel",
+      "submit": "Delete"
+    },
+    "errorMessage": "Can not realized to delete group"
+  },
+  "changeGroupName": {
+    "title": "Change group name",
+    "groupNameInput": {
+      "label": "",
+      "placeholder": "",
+      "validation": {
+        "required": "New group name is required"
+      }
+    },
+    "buttons": {
+      "cancel": "Cancel",
+      "submit": "Change Name"
+    },
+    "errorMessage": "Can not realized to rename group"
+  },
+  "addOrDelete": {
+    "title": "Group user settings",
+    "tab1": "Invite user",
+    "tab2": "Delete user",
+    "input": "Search via name or email",
+    "header": {
+      "name": "Name",
+      "email": "Email",
+      "status": "Status"
+    },
+    "buttonDelete": "Delete",
+    "buttonInvite": "Invite"
+  },
+  "changeAuthority": {
+    "title": "Permission change for",
+    "description": "Group authority take precedence over user authority.",
+    "pairedRadios": {
+      "label1": "Allow",
+      "label2": "Restrict",
+      "radios": {
+        "label1": "Print",
+        "label2": "Download",
+        "label3": "PC client usage",
+        "label4": "Moblie web/app usage",
+        "label5": "Wathermark usage"
+      }
+    },
+    "infoPopover": "If you use IP restriction, the user can only access via designated IP",
+    "ipRestriction": {
+      "label": "IP restriction",
+      "placeholder": "",
+      "validation": {
+        "required": "IP restriction is required"
+      }
+    },
+    "buttons": {
+      "cancel": "Cancel",
+      "apply": "Apply"
+    },
+    "errorMessage": "Can not realized to change permission"
+  }
+}

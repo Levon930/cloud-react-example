@@ -1,0 +1,66 @@
+query PublicFolderMetadata($input: PublicFolderMetadataInput) {
+  publicFolderMetadata(input: $input) {
+    content {
+      ... on DocumentFolder {
+        ownerName
+        parent_company_published
+        isDeleted
+        owner
+        path
+        owner_path
+        created
+        company_published
+        bytes
+        modified
+        version
+        role
+        shared
+      }
+      ... on DocumentFile {
+        ownerName
+        author {
+          author
+          author_name
+          author_lang
+        }
+        isDeleted
+        publicHash
+
+        owner
+        path
+        ownerName
+        created
+        bytes
+        modified
+        version
+        checksum
+        extradata {
+          metainfo {
+            status
+            height
+            width
+          }
+          thumbnails {
+            status
+          }
+          __typename
+        }
+        mime_type
+      }
+    }
+    ownerName
+    isDeleted
+    author {
+      author
+      author_name
+      author_lang
+    }
+    publicHash
+    owner
+    path
+    created
+    bytes
+    modified
+    version
+  }
+}

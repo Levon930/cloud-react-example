@@ -1,0 +1,200 @@
+type CreatedCompany {
+  company_id: Int!
+  company_name: String!
+  created: Float!
+  expires: Float!
+  is_approved: Boolean!
+  login: String!
+  userid: Int!
+}
+
+type CreatedUser {
+  company_id: Int!
+  company_name: String!
+  domain: String!
+  created: Float!
+  expires: Float!
+  is_approved: Boolean!
+  login: String!
+  name: String!
+  remote_wipe: Boolean!
+  userid: Int!
+  expired: Float
+  can_download: Boolean
+  can_print: Boolean
+  pc_can_download: Boolean
+  use_watermarks: Boolean
+}
+
+type Account {
+  token: String!
+  device_description: String!
+  created: Float!
+  expires: Float!
+  remote_wipe: Boolean!
+  id: String!
+  userid: Int!
+  user_eid: Int!
+  login: String!
+  domain: String!
+  name: String!
+  offer_url: String!
+  company_id: Int!
+}
+
+type User {
+  allowed_ips: String!
+  company_id: Int!
+  can_print: Boolean!
+  pc_can_download: Boolean!
+  timezone: String!
+  can_upload: Boolean!
+  is_trial: Boolean!
+  user_mobile_restriction: Boolean!
+  can_download: Boolean!
+  disable_alert: Boolean!
+  last_login: Float!
+  need_password_change: Boolean!
+  role: String!
+  need_tutorial: Boolean!
+  overhead_size: Float!
+  status: String!
+  logins: [String]!
+  ip_restriction: Boolean!
+  registration_date: Float!
+  is_active: Boolean!
+  storage_size: Float!
+  unapproved_logins: [String]!
+  hard_quota_size: Float!
+  deleted_date: Float!
+  expired: Float!
+  lang: String!
+  name: String!
+  type: String!
+  region: String!
+  userid: Int!
+  quota_size: Float!
+  alert_email: String!
+  use_watermarks: Boolean!
+}
+
+type AuthMethods {
+  email: Boolean!
+  ldap: Boolean!
+}
+
+type Company {
+  status: String!
+  phone_number: String!
+  domain: String!
+  sharing_outside_allow: Boolean!
+  folder_create_admin_only: Boolean!
+  public_links_allow: Boolean!
+  ldap_port: Int!
+  folder_limit_creation_allow: Boolean!
+  pay_by_bank: Boolean!
+  registration_date: Float!
+  employees_count: Float!
+  storage_size: Float!
+  ldap_user_attribute: String!
+  restrict_mobile_using: Boolean!
+  wizard_state: String!
+  custom_agreement_shown: String!
+  plan: String!
+  logo: String
+  password_lifetime: Float!
+  plan_expired: Boolean!
+  notification_email: String!
+  ldap_address: String!
+  traffic_size: Float!
+  lang: String!
+  ldap_basedn: String!
+  name: String!
+  mobile_using_start_at: String!
+  mobile_using_end_at: String!
+  company_folder_creation_allow: Boolean!
+  logout_timeout_enable: Boolean!
+  quota_employees_count: Float!
+  company_id: Int!
+  quota_size: Float!
+  can_use_pc_client: Boolean!
+  password_reuse_allow: Boolean!
+  plan_remaining: Int!
+  can_use_mobile: Boolean!
+  use_custom_agreement: Boolean!
+  logout_timeout: Float!
+  auth_methods: AuthMethods!
+  owner_id: Int!
+}
+
+type UsageStatistics {
+  quota_size: Float!
+  storage_size: Float!
+  traffic_size: Float!
+}
+
+input CreateCompanyInput {
+  lang: String!
+  company_name: String!
+  company_domain: String!
+  email: String!
+  password: String!
+  name: String!
+}
+
+input LoginInput {
+  login: String!
+  password: String!
+  permanent_auth: Boolean
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+  password: String!
+  company_id: Int!
+  lang: String!
+  can_download: Boolean!
+  pc_can_download: Boolean!
+  can_print: Boolean!
+  use_watermarks: Boolean!
+  user_mobile_restriction: Boolean!
+  expired: Float
+  permission: Boolean!
+}
+
+type LogoutResult {
+  logout: Boolean
+}
+
+type PermissionsTypes {
+  can_print:Boolean!
+  pc_can_download:Boolean!
+  can_upload:Boolean!
+  can_download: Boolean!
+  role:String!
+}
+
+type getAccessLevelTypes {
+  companyId:Int
+  role:String
+  userid:Int
+  ownerId:Int
+  }
+
+
+extend type Query {
+  getUser: User!
+  getPermissions:PermissionsTypes!
+  getAccessLevel:getAccessLevelTypes
+  getCompany(companyId: Int!): Company!
+  usageStatistics: UsageStatistics!
+}
+
+extend type Mutation {
+  createCompany(input: CreateCompanyInput!): CreatedCompany!
+  createUser(input: CreateUserInput!): CreatedUser
+  login(input: LoginInput!): Account!
+  recoverLostPassword(login: String!): CommonResponse!
+  logout: LogoutResult
+}

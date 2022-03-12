@@ -1,0 +1,87 @@
+input CompanyBasicSettingsData {
+  id: Int!
+  name: String!
+  domain: String!
+}
+
+type CompanyBasicSettingsOutput {
+  name: String!
+  domain: String!
+}
+
+type ChangeResponse {
+  code: String
+  description: String
+}
+
+type cont1 {
+  status: String
+  name: String
+  is_trial: Boolean
+  logins: [String]
+  is_active: Boolean
+  expired: Int
+  userid: Int
+  need_tutorial: Boolean
+  extra_info: String #any
+}
+
+type cont2 {
+  login: String
+  company_id: Int
+  company_name: String
+  created: Int
+  expires: Int
+  userid: Int
+  is_approved: Boolean #false
+  status: String 
+}
+
+union contentType = cont1 | cont2
+
+type CompanyUser {
+  name: String!
+  storage_size: Float
+  role: String
+  last_login: Float
+  expired: Float
+  is_active: Boolean!
+  can_download: Boolean
+  can_print: Boolean
+  user_mobile_restriction: Boolean
+  pc_can_download: Boolean
+  use_watermarks: Boolean
+  hard_quota_size: Float
+  logins: [String]!
+  userid: Int!
+  ip_restriction: Boolean
+  allowed_ips: String
+}
+
+type CompanyUsersList {
+  user_id: Int!
+  name: String
+  position: String
+  content: [contentType]
+}
+
+
+input ChangeAdminRightsData {
+  id: Int!
+  value: Boolean!
+}
+
+type ChangeAdminResponse {
+  message: String
+}
+
+
+extend type Query {
+  companyBasicSettings(id: Int!): CompanyBasicSettingsOutput!
+}
+
+extend type Mutation {
+  updateCompanyBasicSettings(input: CompanyBasicSettingsData!): ChangeResponse!
+  changeAdministratorRights(input: [ChangeAdminRightsData]): ChangeAdminResponse
+  companySuperAdministratorChange(id: Int!):ChangeAdminResponse
+}

@@ -1,0 +1,12 @@
+{
+  "buttons": {
+    "previous": "Previous page",
+    "customer": "Customer center"
+  },
+  "texts": {
+    "title": "We apologize for the inconvenience of using the service.",
+    "primery": "The current service has encountered a temporary error. Please try again in a few minutes.",
+    "secondary": "If the same symptom persists, please contact the 'Cloudike' customer center (1811-9881)."
+  },
+  "footer": "© 2021 Cloudike, Inc."
+}

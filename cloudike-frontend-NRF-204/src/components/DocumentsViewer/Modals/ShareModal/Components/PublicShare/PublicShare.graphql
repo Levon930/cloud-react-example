@@ -1,0 +1,11 @@
+mutation CreateLink($input: CreatePublicLinkData!) {
+  createPublicLink(input: $input) {
+    publicHash
+  }
+}
+
+mutation DeleteCreatedLink($input: DeletePublicLinkData!) {
+  deletePublicLink(input: $input) {
+    path
+  }
+}

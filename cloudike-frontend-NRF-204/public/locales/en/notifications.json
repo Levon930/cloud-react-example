@@ -1,0 +1,13 @@
+{
+  "file_shared_invitation": {
+    "text": "{{username}} invited you to the shared folder <link/>"
+  },
+  "numerous_failed_login_attempts": {
+    "text": "{{username}} failed to login {{count}} times."
+  },
+  "accept": "Accept",
+  "reject": "Reject",
+  "accepted": "Accepted",
+  "rejected": "Rejected",
+  "confirm": "Confirm"
+}

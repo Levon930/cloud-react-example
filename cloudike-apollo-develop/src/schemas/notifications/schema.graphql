@@ -1,0 +1,37 @@
+type Notification {
+  status: String!
+  initNoticeUserId: Float!
+  userId: Float!
+  timestamp: Float!
+  modified: Float!
+  initNoticeUserName: String!
+  behavior: String!
+  text: String!
+  action: String!
+  scope: String!
+  path: String!
+  hash: String!
+  permissions: String
+}
+
+type ViewNotifications {
+  status: String!
+}
+
+enum NotificationsType {
+  ALL
+  NEW
+}
+
+input NotificationsInput {
+  type: NotificationsType
+}
+
+input ViewNotificationsInput {
+  notice_hash: String!
+}
+
+extend type Query {
+  notifications(input: NotificationsInput!): [Notification]!
+  viewNotifications(input: ViewNotificationsInput): ViewNotifications!
+}

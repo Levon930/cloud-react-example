@@ -1,0 +1,22 @@
+enum NotificationsType {
+    ALL
+    NEW
+}
+
+query Notifications ($type: NotificationsType!) {
+    notifications (input: {type: $type}){
+        status,
+        initNoticeUserId,
+        userId,
+        timestamp,
+        modified,
+        initNoticeUserName,
+        behavior,
+        text,
+        action,
+        scope,
+        path,
+        hash,
+        permissions,
+    }
+}

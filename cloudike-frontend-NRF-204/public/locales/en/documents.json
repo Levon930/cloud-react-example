@@ -1,0 +1,82 @@
+{
+  "title": "My Documents",
+  "selected": "selected",
+  "emptyFolder": {
+    "title": "My document is empty.",
+    "description": "When uploading a file, drag&drop it here or click the upload button"
+  },
+  "deleteFolder": {
+    "title": "Delete",
+    "description": "Do you really want to remove it?",
+    "buttons": {
+      "cancel": "Cancel",
+      "submit": "Delete"
+    }
+  },
+  "toolBar": {
+    "newFolder": "New folder",
+    "upload": "Upload",
+    "download": "Download",
+    "share": "Share",
+    "delete": "Delete",
+    "moveCopy": "Move/Copy"
+  },
+  "createFolder": {
+    "title": "Create new folder",
+    "input": {
+      "label": "",
+      "placeholder": "Name",
+      "validation": {
+        "required": "Folder name is required",
+        "wrongFormat": "Wrong format"
+      }
+    },
+    "buttons": {
+      "cancel": "Cancel",
+      "submit": "Create"
+    }
+  },
+  "sort": {
+    "asc": "sorted ascending",
+    "desc": "sorted descending"
+  },
+  "tableTitle": {
+    "name": "Name",
+    "size": "Size",
+    "modified": "Modified date",
+    "teamFolderName": "Team folder name"
+  },
+  "sizes": {
+    "KB": "KB",
+    "Bytes": "Bytes",
+    "MB": "MB",
+    "GB": "GB",
+    "TB": "TB",
+    "PB": "PB",
+    "EB": "EB",
+    "ZB": "ZB",
+    "YB": "YB"
+  },
+  "renameFolder": {
+    "title": "Rename",
+    "input": {
+      "label": "",
+      "placeholder": "Name",
+      "validation": {
+        "required": "Name is required",
+        "wrongFormat": "Wrong format"
+      }
+    },
+    "buttons": {
+      "cancel": "Cancel",
+      "submit": "Rename"
+    }
+  },
+  "errorMessages": {
+    "openFolder": "Can not realized to open this folder",
+    "goToMainFolder": "Can not realized to go to main folder",
+    "createFolder": "Can not realized to create folder",
+    "deleteModal": "Can not realized to delete modal",
+    "renameModal": "Can not realized to rename modal"
+  }
+}

@@ -1,0 +1,118 @@
+query Groups {
+  groups {
+    count
+    groups {
+      allowed_ips
+      can_download
+      can_print
+      company_id
+      group_id
+      ip_restriction
+      members_count
+      mobile_restriction
+      name
+      pc_can_download
+      use_watermarks
+      users {
+        groups
+        name
+        storage_size
+        role
+        last_login
+        expired
+        is_active
+        can_download
+        can_print
+        user_mobile_restriction
+        pc_can_download
+        use_watermarks
+        hard_quota_size
+      }
+    }
+    limit
+    offset
+  }
+}
+
+query GroupUsers($search: String, $group_id: Int!) {
+  groupUsers(search: $search, group_id: $group_id) {
+    limit
+    offset
+    count
+    users {
+      name
+      is_active
+      logins
+      userid
+      login
+    }
+  }
+}
+
+mutation InviteGroupUsers($groupId: Int!, $data: [Int!]!) {
+  inviteGroupUsers(input: { groupId: $groupId, data: $data }) {
+    status
+    userid
+  }
+}
+
+mutation DeleteGroupUsers($groupId: Int!, $data: [Int!]!) {
+  deleteGroupUsers(input: { groupId: $groupId, data: $data }) {
+    status
+    userid
+  }
+}
+
+mutation CreateGroup($name: String!) {
+  createGroup(input: { name: $name }) {
+    allowed_ips
+    can_download
+    can_print
+    company_id
+    group_id
+    ip_restriction
+    members_count
+    mobile_restriction
+    name
+    pc_can_download
+    use_watermarks
+  }
+}
+
+mutation DeleteGroup($name: String!) {
+  deleteGroup(input: { name: $name }) {
+    description
+  }
+}
+
+mutation RenameGroup($name: String!, $group_id: Int!) {
+  renameGroup(input: { name: $name, group_id: $group_id }) {
+    name
+  }
+}
+
+mutation ChangeGroupPermission(
+  $use_watermarks: Boolean
+  $can_print: Boolean
+  $can_download: Boolean
+  $pc_can_download: Boolean
+  $user_mobile_restriction: Boolean
+  $ip_restriction: Boolean
+  $allowed_ips: String
+  $group_id: Int!
+) {
+  changeGroupPermission(
+    input: {
+      use_watermarks: $use_watermarks
+      can_print: $can_print
+      can_download: $can_download
+      pc_can_download: $pc_can_download
+      user_mobile_restriction: $user_mobile_restriction
+      ip_restriction: $ip_restriction
+      allowed_ips: $allowed_ips
+      group_id: $group_id
+    }
+  ) {
+    count
+  }
+}

@@ -1,0 +1,8 @@
+mutation Login($login: String!, $password: String!, $permanent_auth: Boolean) {
+  login(input: { login: $login, password: $password, permanent_auth: $permanent_auth }) {
+    id
+    userid
+    name
+    token
+  }
+}

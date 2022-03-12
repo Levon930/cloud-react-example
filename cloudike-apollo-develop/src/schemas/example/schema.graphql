@@ -1,0 +1,30 @@
+enum ExampleEnum {
+  CATS
+  DOGS
+}
+
+type Example {
+  id: ID!
+  name: String!
+  additional: String
+}
+
+input CreateExampleInput {
+  name: String!
+}
+
+input UpdateExampleInput {
+  id: ID!
+  name: String!
+}
+
+extend type Mutation {
+  createExample(example: CreateExampleInput!): Example
+  updateExample(example: UpdateExampleInput): Example
+  removeExample(id: ID!): Boolean!
+}
+
+extend type Query {
+  example(id: ID!): Example
+  examples: [Example!]
+}

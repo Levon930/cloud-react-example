@@ -1,0 +1,388 @@
+type ClientData {
+  created: Int!
+  modified: Int!
+}
+
+enum WhooseType {
+  my
+  others
+  company
+}
+
+input GetShares {
+  whoose: WhooseType
+}
+type ThumbnailType {
+  link: String!
+}
+
+type ThumbnailsType {
+  status: String!
+  small: ThumbnailType
+  middle: ThumbnailType
+  preview: ThumbnailType
+}
+
+type Videos {
+  status: String!
+  vga: ThumbnailType
+}
+
+type MetaInfo {
+  status: String!
+  height: Int!
+  width: Int!
+  creation_time: Int!
+  duration: Int!
+  video_bit_rate: Int!
+  video_codec_name: String!
+  video_stream: Boolean!
+}
+type ExtraData {
+  metainfo: MetaInfo
+  thumbnails: ThumbnailsType
+  videos: Videos
+}
+
+type FileMetadata {
+  owner_name: String!
+  author: Int!
+  parent_company_published: Boolean!
+  deleted: Boolean!
+  author_name: String!
+  is_in_trash: Boolean!
+  public_hash: String!
+  client_data: ClientData
+  is_favorite: Boolean!
+  shared_hash: String!
+  owner: Int!
+  path: String!
+  owner_path: String!
+  created: Int!
+  company_published: Boolean!
+  bytes: Int!
+  modified: Int!
+  version: Int!
+  role: String!
+  author_lang: String!
+  shared: Boolean!
+  folder: Boolean!
+  icon: String!
+  checksum: String!
+  extradata: ExtraData
+  mime_type: String!
+}
+
+union Content = FileMetadata | FolderMetadata
+
+type FolderMetadata {
+  content: [Content]!
+  is_last_page: Boolean!
+  owner_name: String!
+  author: Int!
+  parent_company_published: Boolean!
+  deleted: Boolean!
+  author_name: String!
+  is_in_trash: Boolean!
+  public_hash: String!
+  client_data: ClientData
+  is_favorite: Boolean!
+  shared_hash: String
+  owner: Int!
+  path: String!
+  owner_path: String!
+  created: Int!
+  company_published: Boolean!
+  bytes: Int!
+  modified: Int!
+  version: Int!
+  role: String!
+  author_lang: String!
+  shared: Boolean!
+  folder: Boolean!
+  icon: String!
+}
+
+input CompanySharedListInput {
+  folder_hash: String!
+  offset: String
+  limit: String
+  show_all: String
+}
+
+type CompanySharedListData {
+  status: String!
+  owner_name: String!
+  collaborators_count: Int!
+  company_published: Boolean
+  creation_date: Int!
+  public_name: String
+  modification_time: Int!
+  folder_hash: String!
+  path: String!
+  shared: Boolean
+  folder: Boolean
+  owner_id: Int!
+  icon: String!
+}
+
+type CompanySharedFolderInfo {
+  owner_id: Int!
+  public_name: String
+  folder_hash: String!
+  owner_name: String!
+  collaborators_count: Int!
+  modification_time: Int!
+  status: String!
+  waiting: Boolean
+  requested: Boolean
+  accepted: Boolean
+}
+
+type AccessRequestsList {
+  owner_id: Int!
+  owner_name: String!
+  directory_name: String!
+  writer: Boolean
+  hash: String!
+}
+
+type Invitations {
+  hash: String!
+  writer: Boolean
+  directory_name: String!
+  owner_name: String!
+  owner_id: Int!
+}
+
+input PublicLinksListInput {
+  hash: String!
+}
+
+type PublicLinksList {
+  created: Int!
+  deleted: Boolean
+  bytes: Int!
+  modified: Int!
+  public_hash: String!
+  version: Int!
+  path: String!
+  folder: Boolean
+  thumbnail: Boolean
+  mime_type: String!
+  icon: String!
+}
+
+input PublicItemInfoInput {
+  hash: String!
+  path: String
+  for_view: Boolean
+}
+
+type PublicItemInfo {
+  url: String!
+}
+
+input PublicFolderMetadataInput {
+  hash: String!
+  path: String
+  dirs_only: Boolean
+  extra: Boolean
+  offset: Int
+  limit: Int
+}
+
+input ShareFolderInput {
+  path: String!
+  member_login: String
+  writer: Boolean
+  invitation: String
+  public_view: Boolean
+  group_id: String
+  lang: String
+  use_folder_limit: Boolean
+  folder_limit: Int
+}
+
+type SharedFolder {
+  hash: String!
+  login: String
+}
+
+input RemoveUserFromSharedInput {
+  path: String!
+  login: String!
+}
+
+input AcceptSharing {
+  hash: String!
+}
+
+type SharingActions {
+  code: String!
+  description: String!
+}
+
+input DeclineSharing {
+  hash: String!
+}
+
+input UninviteFolder {
+  path: String!
+  member_login: Boolean
+  group_id: Boolean
+}
+
+input UnshareFolder {
+  path: String!
+}
+
+input CollaboratorsInput {
+  path: String!
+}
+
+type Collaborators {
+  owner: Boolean!
+  writer: Boolean!
+  status: String!
+  userid: Int!
+  login: String!
+  name: String!
+  is_indirect: Boolean!
+}
+type PublicLinkInfo {
+  created: String!
+  expires: String!
+  access_rights: String!
+  author_lang: String!
+  notify: Boolean!
+  download_max: Int!
+  download_count: Int!
+  password: Boolean!
+}
+input UpdateCollaborator {
+  path: String!
+  member_login: String!
+  writer: Boolean!
+  group_id: String!
+}
+
+input FolderSizeLimit {
+  path: String!
+  owner_id: String!
+  size_limit: ID
+  enable: Boolean!
+}
+
+input AddFolderToCompanySharedInput {
+  path: String!
+  public_name: String
+}
+
+type AddFolderToCompanyShared {
+  owner_id: Int!
+  public_name: String
+  folder_hash: String!
+}
+
+input RemoveFolderFromCompanyShared {
+  folder_hash: String!
+  path: String!
+}
+
+input SharesCompanySharedInput {
+  name: String!
+  offset: Int
+  limit: Int
+}
+
+enum Shares {
+  share
+  link
+}
+
+type SharesCompanyShared {
+  bytes: Int!
+  creation_time: Int!
+  modification_time: Int!
+  owner_id: ID!
+  owner_name: String!
+  shared_outside: Boolean!
+  src_path: String!
+  type: Shares
+}
+
+input SendAccessRequest {
+  folder_hash: String!
+  invitation: String!
+}
+
+input AcceptSharingRequest {
+  folder_hash: String!
+  writer: Boolean!
+}
+
+input CreatePublicLinkInput {
+  path: String!
+  ttl: Int
+  download_max: Int
+  password: ID
+  notify: Boolean
+  upload_folder: Boolean
+}
+
+input DeletePublicLink {
+  path: String!
+}
+
+input HandoverPublicFolder {
+  path: String!
+  member_id: ID!
+}
+input PublicLinksInfoInput {
+  hash: String!
+  author_lang: String
+}
+input SecureFolderMetadataInput {
+  hash: String!
+  path: String
+  dirs_only: Boolean
+  extra: Boolean
+  offset: Int
+  limit: Int
+  password: String!
+}
+union CreatePublicLinkRequest = FileMetadata | FolderMetadata
+
+extend type Query {
+  getShares(user: GetShares): FolderMetadata!
+  companySharedList(input: CompanySharedListInput!): [CompanySharedListData]!
+  companySharedFolderInfo(folder_hash: String!): [CompanySharedFolderInfo]!
+  accessRequestsList: [AccessRequestsList]!
+  invitations: [Invitations]!
+  publicLinksList(hash: PublicLinksListInput!): [PublicLinksList]!
+  publicFolderMetadata(input: PublicFolderMetadataInput): Document!
+  collaborators(path: CollaboratorsInput!): [Collaborators]!
+  publicItemInfo(input: PublicItemInfoInput!): PublicItemInfo!
+  publicLinkInfo(input: PublicLinksInfoInput!): PublicLinkInfo!
+}
+
+extend type Mutation {
+  shareFolder(input: ShareFolderInput!): SharedFolder!
+  removeUserFromShared(input: RemoveUserFromSharedInput!): SharingActions!
+  acceptSharing(hash: AcceptSharing!): SharingActions!
+  declineSharing(hash: DeclineSharing!): SharingActions!
+  uninviteFolder(input: UninviteFolder!): SharingActions!
+  unshareFolder(path: UnshareFolder!): SharingActions!
+  updateCollaboratorRights(input: UpdateCollaborator!): SharingActions!
+  folderSizeLimit(input: FolderSizeLimit): SharingActions!
+  addFolderToCompanyShared(
+    input: AddFolderToCompanySharedInput!
+  ): AddFolderToCompanyShared!
+  removeFolderFromCompanyShared(input: RemoveFolderFromCompanyShared!): Boolean
+  sharesCompanyShared(input: SharesCompanySharedInput!): [SharesCompanyShared]!
+  sendAccessRequest(input: SendAccessRequest!): Boolean
+  acceptSharingRequest(input: AcceptSharingRequest!): Boolean
+  handoverPublicFolder(input: HandoverPublicFolder!): Boolean
+  secureFolderMetadata(input: SecureFolderMetadataInput!): Document!
+}

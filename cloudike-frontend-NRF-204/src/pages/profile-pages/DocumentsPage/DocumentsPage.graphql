@@ -1,0 +1,86 @@
+query Documents(
+  $path: String!
+  $order: String!
+  $orderBy: String!
+  $page: Int!
+  $itemsPerPage: Int!
+) {
+  documents(
+    input: { path: $path }
+    sort: { order: $order, orderBy: $orderBy }
+    pagination: { page: $page, itemsPerPage: $itemsPerPage }
+  ) {
+    path
+    itemsTotal
+    content {
+      ... on DocumentFolder {
+        path
+        bytes
+        modified
+        type
+        isFavorite
+      }
+      ... on DocumentFile {
+        path
+        bytes
+        modified
+        isFavorite
+        extradata {
+          thumbnails {
+            middle {
+              link
+            }
+            preview {
+              link
+            }
+            small {
+              link
+            }
+          }
+        }
+        type
+      }
+    }
+  }
+}
+
+mutation CreateFolder($path: String!) {
+  createFolder(input: { path: $path }) {
+    path
+  }
+}
+
+mutation DownloadArchive($path: String!) {
+  downloadArchive(input: { path: $path }) {
+    hash
+  }
+}
+
+mutation MultiDelete($paths: [String!]!) {
+  multiDelete(input: { paths: $paths }) {
+    failed
+    success
+    nodes {
+      path
+    }
+  }
+}
+
+mutation CreateFile($path: String!, $size: Int!, $overwrite: Int!, $multipart: Boolean!) {
+  createFile(input: { path: $path, size: $size, overwrite: $overwrite, multipart: $multipart }) {
+    url
+    confirm_url
+  }
+}
+
+mutation DownloadUrl($path: String!, $hash: String) {
+  downloadUrl(input: { path: $path, hash: $hash }) {
+    url
+  }
+}
+
+mutation RenameFileOrFolder($path: String!, $newname: String!) {
+  renameFileOrFolder(input: { path: $path, newname: $newname }) {
+    path
+  }
+}

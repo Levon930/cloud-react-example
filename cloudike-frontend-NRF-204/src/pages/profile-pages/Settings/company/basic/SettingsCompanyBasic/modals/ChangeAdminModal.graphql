@@ -1,0 +1,16 @@
+input ChangeAdminRightsData {
+  id: Int!
+  value: Boolean!
+}
+
+mutation ChangeAdministratorRights($users: [ChangeAdminRightsData]) {
+  changeAdministratorRights(input: $users) {
+    message
+  }
+}
+
+mutation CompanySuperAdministratorChange($id: Int!) {
+  companySuperAdministratorChange(id: $id) {
+    message
+  }
+}

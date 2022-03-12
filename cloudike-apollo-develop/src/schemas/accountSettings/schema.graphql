@@ -1,0 +1,18 @@
+input AccountBasicSettingsData {
+  userId: Int!
+  name: String
+  alertEmail: String
+  disableAlert: Boolean
+  lang: String
+}
+
+type AccountBasicSettingsUpdated {
+  code: String
+  description: String
+}
+
+extend type Mutation {
+  updateAccountBasicSettings(input: AccountBasicSettingsData!): AccountBasicSettingsUpdated!
+  changePassword(newPassword: String): AccountBasicSettingsUpdated!
+}
+

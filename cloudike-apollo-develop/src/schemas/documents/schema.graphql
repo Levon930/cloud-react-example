@@ -1,0 +1,241 @@
+enum DocumentType {
+  FILE
+  FOLDER
+}
+
+input DocumentsInput {
+  path: String!
+  limit: Int
+  offset: Int
+}
+
+input DocumentsSort {
+  order: String!
+  orderBy: String!
+}
+
+type DocumentsFilter {
+  order: String!
+  orderBy: String!
+  page: Int!
+  perPage: Int!
+}
+
+# Document union ---
+interface Document {
+  path: String!
+  created: String!
+  modified: String!
+  bytes: Int!
+  # Not sure that we need `icon`, we already can understand it's folder/file and extension
+  # icon: String # replace with enum "folder" | "lnk" | "image"
+
+  # FIXME: union to object and don't forget `owner_path`
+  owner: String!
+  ownerName: String
+
+  author: Author
+
+  isDeleted: Boolean # deleted
+  isTrashed: Boolean # is_in_trash
+  isFavorite: Boolean # is_favorite
+  version: String!
+  publicHash: String # public_hash
+  # client_data: ???
+  content: [DocumentContent!]
+  itemsTotal: Int!
+  type: String!
+}
+
+# Author --
+type Author {
+  author: Int
+  author_name: String
+  author_lang: String
+}
+
+# File Props --
+type DocumentFile implements Document {
+  path: String!
+  created: String!
+  modified: String!
+  bytes: Int!
+  # Not sure that we need `icon`, we already can understand it's folder/file and extension
+  # icon: String # replace with enum "folder" | "lnk" | "image"
+
+  # FIXME: union to object and don't forget `owner_path`
+  owner: String!
+  ownerName: String
+
+  author: Author
+
+  isDeleted: Boolean # deleted
+  isTrashed: Boolean # is_in_trash
+  isFavorite: Boolean! # is_favorite
+  version: String!
+  publicHash: String # public_hash
+  # client_data: ???
+  content: [DocumentContent!]
+
+  # ADDITIONAL FIELDS
+  checksum: String!
+  mime_type: String!
+  extradata: Extradata!
+  itemsTotal: Int!
+  type: String!
+}
+
+# Extradata -
+type Extradata {
+  metainfo: Metainfo
+  thumbnails: Thumbnails
+}
+
+type Metainfo {
+  width: Int
+  height: Int
+  status: String! # change to enum "ready" | "..."
+}
+
+type Thumbnail {
+  link: String
+}
+
+type Thumbnails {
+  middle: Thumbnail
+  preview: Thumbnail
+  small: Thumbnail
+  status: String! # change to enum "ready" | "..."
+}
+
+# Folder --
+type DocumentFolder implements Document {
+  path: String! @convertFilePath
+  created: String!
+  modified: String!
+  bytes: Int!
+  hash: String
+  # Not sure that we need `icon`, we already can understand it's folder/file and extension
+  # icon: String # replace with enum "folder" | "lnk" | "image"
+
+  # FIXME: union to object and don't forget `owner_path`
+  owner: String!
+  ownerName: String
+
+  author: Author
+
+  isDeleted: Boolean # deleted
+  isTrashed: Boolean # is_in_trash
+  isFavorite: Boolean! # is_favorite
+  version: String!
+  publicHash: String # public_hash
+  # client_data: ???
+  content: [DocumentContent!]
+
+  # ADDITIONAL FIELDS
+  parent_company_published: Boolean
+  company_published: Boolean
+  shared_hash: String
+  shared: Boolean!
+  owner_path: String
+  role: String # replace with enum "owner" | "..."
+  itemsTotal: Int!
+  type: String!
+}
+
+type DeletedFile {
+  failed: Int!
+  success: Int!
+  nodes: [Document]!
+}
+
+type CreatedFile {
+  confirm_url: String!
+  url: String!
+}
+
+type DownloadedUrl {
+  url: String!
+}
+
+type archiveHash {
+  hash: String!
+}
+
+input CreateFolderData {
+  path: String!
+}
+
+input DeletePublicLinkData {
+  path: String!
+}
+
+input DeleteItemData {
+  paths: [String!]!
+}
+
+input SetFavoriteData {
+  path: String!
+}
+
+input CreateFileData {
+  path: String!
+  size: Int!
+  overwrite: Int!
+  multipart: Boolean!
+}
+
+input RenameData {
+  path: String!
+  newname: String!
+}
+
+input CreatePublicLinkData {
+  ttl: Int
+  downloadMax: Int
+  password: String
+  path: String!
+  uploadFolder: Boolean
+}
+
+input DownloadArchiveData {
+  path: String!
+}
+
+input DownloadUrlData {
+  path: String!
+  hash: String
+}
+
+union DocumentContent = DocumentFile | DocumentFolder
+
+# type ContentInDocument {
+#   content: [DocumentContent]!
+# }
+
+# union DocumentsQueryResult = Document | ContentInDocument
+
+extend type Query {
+  documents(
+    input: DocumentsInput
+    sort: DocumentsSort
+    pagination: Pagination
+  ): Document!
+}
+
+type CreatedLink {
+  publicHash: String!
+}
+
+extend type Mutation {
+  # updateCompanyBasicSettings(input: CompanyBasicSettingsData!): ChangeResponse!
+  createFolder(input: CreateFolderData!): DocumentFolder!
+  createFile(input: CreateFileData!): CreatedFile!
+  downloadUrl(input: DownloadUrlData!): DownloadedUrl!
+  multiDelete(input: DeleteItemData!): [DeletedFile]!
+  # setFavorite(input: SetFavoriteData!): Folder!
+  renameFileOrFolder(input: RenameData!): DocumentFolder!
+  createPublicLink(input: CreatePublicLinkData!): CreatedLink!
+  deletePublicLink(input: DeletePublicLinkData!): DocumentFolder!
+  downloadArchive(input: DownloadArchiveData!): archiveHash!
+}

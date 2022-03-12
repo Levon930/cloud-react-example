@@ -1,0 +1,18 @@
+{
+  "filePreview": {
+    "img":"file preview",
+    "upload": "Upload:user",
+    "download": "Download",
+    "downloadErrorMessage": "Can not realized download",
+    "share": "Share",
+    "comment": "Comment",
+    "comingSoon": "Coming soon",
+    "details": "Details",
+    "fileName": "File name",
+    "size": "Size",
+    "modifiedDay": "Modified date",
+    "toolAction": {
+      "errorMessage": "Case is not found"
+    }
+  }
+}

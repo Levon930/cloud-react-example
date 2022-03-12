@@ -1,0 +1,163 @@
+{
+  "form": {
+    "first": {
+      "title": "Company security settings",
+      "checkboxGroupTitle": "Share & Folder",
+      "checkboxGroup": {
+        "checkbox1": "Allow link sharing",
+        "checkbox2": "Allow creation of company folders",
+        "checkbox3": "Allow only administrator to create folders"
+      },
+      "submit": "Apply"
+    },
+    "second": {
+      "title": "Sign in",
+      "radioGroupTitle": "Sign in method",
+      "radioGroupInfo": "If there is an existing LDAP (or Active Directory) established in-house, user account in the company can be easily managed by linking with Cloudike.",
+      "radioGroup": {
+        "radio1": "Email",
+        "radio2": "LDAP"
+      },
+      "autoSignOut": "Automatic user sign out",
+      "minute": {
+        "title": "Minute",
+        "option1": "5 minutes",
+        "option2": "10 minutes",
+        "option3": "30 minutes",
+        "option4": "60 minutes"
+      },
+      "autoSignOutInfo": "You can set the automatic sign out time for users who have not been used for a certain period of time.",
+      "PasswordExpirationDate": {
+        "title": "Password expiration date",
+        "notSet": "Not set",
+        "option1": "1 mount",
+        "option2": "3 months",
+        "option3": "6 months",
+        "option4": "1 year"
+      },
+      "checkboxGroup": {
+        "checkbox1": "Allow password reuse",
+        "checkbox2": "Allow the use of mobile application"
+      },
+      "LDAP": {
+        "LDAPserver": {
+          "placeholder": "LDAP server",
+          "validation": {
+            "required": "LDAP server is required",
+            "wrong_format": "Wrong format"
+          }
+        },
+        "LDAPserver389": {
+          "validation": {
+            "required": "LDAP server is required",
+            "wrong_format": "Wrong format"
+          }
+        },
+        "LDAPBaseDN": {
+          "placeholder": "LDAP Base DN",
+          "validation": {
+            "required": "LDAP Base DN is required",
+            "wrong_format": "Wrong format"
+          }
+        },
+        "LDAPEntry": {
+          "label": "LDAP entry",
+          "option": "User ID: uid",
+          "validation": {
+            "required": "LDAP Entry is required"
+          }
+        },
+        "LDAPtest": "test"
+      },
+      "settings": {
+        "label": "Company cloud terms and conditions",
+        "title": "Settings",
+        "settingsInfo": "If you select the Company cloud terms and conditions ofuse, your team members must agree to the terms and conditions when they sign in to use the cloud service."
+      }
+    },
+    "settings": {
+      "title": "Company settings",
+      "name": {
+        "label": "Company name",
+        "placeholder": "Company name",
+        "validation": {
+          "required": "Company name is required",
+          "wrong_format": "Wrong format"
+        }
+      },
+      "domain": {
+        "label": "Company domain",
+        "placeholder": "Company domain",
+        "validation": {
+          "required": "Company domain is required",
+          "wrong_format": "Wrong format"
+        }
+      },
+      "submit": "Apply"
+    },
+    "adminSettings": {
+      "admin": {
+        "super": {
+          "title": "Change super administrator"
+        },
+        "middle": {
+          "title": "Change middle administrator"
+        }
+      },
+      "submit": "Settings"
+    }
+  },
+  "customSettings": {
+    "company_logo": "Company Logo",
+    "company_name": "Company Name",
+    "upload_terms": "You can only upload png, jpeg. bmp, and gif files (265px X 85px)",
+    "apply_button": "Apply",
+    "validation": {
+      "required": "A file is required",
+      "file_size": "File too large",
+      "file_format": "Unsupported Format"
+    }
+  },
+  "terms_modal": {
+    "title": "Set terms and conditions",
+    "use_terms": {
+      "label": "use terms and conditions"
+    },
+    "editor": {
+      "placeholder": "Please enter the terms and conditions",
+      "validation": {
+        "required": "The terms and conditions can't be empty"
+      }
+    },
+    "apply_button": "Apply",
+    "cancel_button": "Cancel"
+  },
+  "change_admin_modals": {
+    "change_super_admin": {
+      "modal_info": "If you change the super administrator, your current account is no longer super administrator. In addition , your account will be automatically signed out.",
+      "apply_button": "Modify",
+      "cancel_button": "Close",
+      "search": {
+        "placeholder": "Search by name or email",
+        "errorMessage": "Can not realized search"
+      }
+    },
+    "confirm_super_admin": {
+      "modal_info": "Your current account will no longer be a company administrator and automatically signed out. This command is irreversible. Would you like to continue?",
+      "apply_button": "Yes",
+      "cancel_button": "No",
+      "submitErrorMessage": "Can not realized change super admin"
+    },
+    "change_middle_admin": {
+      "modal_info":"The selected team member is designated as the middle administrator. Middle administrators have the same authorities as super administrator, but can not change super administrator. If you want to relieve of the middle administrator, press again and click the button below.",
+      "apply_button": "Modify",
+      "cancel_button": "Close",
+      "search": {
+        "placeholder": "Search by name or email",
+        "errorMessage": "Can not realized search"
+      },
+      "submitErrorMessage": "Can not realized change middle admin",
+      "messageNoSelectedUser": "Please select at least one user"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+query Favorites($input: CommonListInput!) {
+  favorites(input: $input) {
+    content {
+      path
+      created
+      modified
+      bytes
+      owner
+      ownerName
+      version
+      isFavorite
+      type
+    }
+    isLastPage
+  }
+}
+
+mutation SetFavorite($input: SetFavoriteInput!) {
+  setFavorite(input: $input) {
+    path
+    created
+    modified
+    bytes
+    owner
+    ownerName
+    version
+    isFavorite
+    type
+  }
+}

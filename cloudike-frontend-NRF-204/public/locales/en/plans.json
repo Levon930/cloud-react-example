@@ -1,0 +1,84 @@
+{
+  "plans": {
+    "changePlans": {
+      "title": "Types of plan",
+      "monthlyBilling": "Monthly billing",
+      "annualBilling": "Annual billing(8% discount)"
+    },
+    "planDescriptions": {
+      "storageSize": "Storage size",
+      "numberOfUsers": "Number of users",
+      "pcClient": "PC client",
+      "webDrive": "WebDrive",
+      "linkage": "Microsoft365 linkage",
+      "filePreview": "File preview",
+      "comment": "Comment",
+      "fileVersioning": "File Versioning",
+      "linkSharing": "Link sharing",
+      "Watermark": "Watermark",
+      "restrictionOfDownload": "Restriction of download",
+      "restrictionOfEditing": "Restriction of editing rights",
+      "checkLog": "Check activity log"
+    },
+    "planTypes": [
+      {
+        "name": "SLIM",
+        "price": "18,000",
+        "discount": "xxx"
+      },
+      {
+        "name": "BASIC",
+        "price": "25,000",
+        "discount": "xxx"
+      },
+      {
+        "name": "STANDARD",
+        "price": "38,000",
+        "discount": "xxx"
+      },
+      {
+        "name": "PROFESSIONAL",
+        "price": "98,000",
+        "discount": "xxx"
+      }
+    ],
+    "custom": {
+      "name": "CUSTOM",
+      "price": "Separate inquire"
+    },
+    "rules": [
+      {
+        "id": 1,
+        "text": "An additional 8% discount applies when billed annually. All prices are exclusive of VAT."
+      },
+      {
+        "id": 2,
+        "text": "Monthly download traffic limit per company account: 2.5 times the storage size of the paid plan; if traffic is exceeded, a separate notice will be give, and there are restrictions or use or additional fee will be charged. (if the traffic exceeded, W270/GB will be charged.)"
+      },
+      {
+        "id": 3,
+        "text": "The download traffic for the SLIM plan is 30GB."
+      },
+      {
+        "id": 4,
+        "text": "The \"Windows Explorer (PC Client)\" program is provided from the BASIC plan."
+      }
+    ],
+    "buttons": {
+      "buy": "Buy now",
+      "inquire": "Inquire"
+    },
+    "titles": {
+      "planChoose": "Other plans",
+      "payments": "Payment history",
+      "method": "Change payment method"
+    },
+    "info": {
+      "periodOfUse": "Period of use",
+      "billingDate": "Next billing date",
+      "paymentInfo": "Payment information",
+      "name": "Name",
+      "changePlan": "Change plan"
+    }
+  }
+}

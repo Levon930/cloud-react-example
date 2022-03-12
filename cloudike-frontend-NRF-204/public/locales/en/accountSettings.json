@@ -1,0 +1,62 @@
+{
+  "form": {
+    "general": {
+      "title": "General settings",
+      "name": {
+        "label": "Name",
+        "placeholder": "Name",
+        "validation": {
+          "required": "Name is required",
+          "wrong_format": "Wrong format"
+        }
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "Email",
+        "validation": {
+          "required": "Email is required",
+          "wrong_format": "Wrong format"
+        }
+      },
+      "checkbox": "Receive notifications",
+      "language": {
+        "label": "Language",
+        "placeholder": "Language"
+      },
+      "submit": "Apply",
+      "errorMessage": "Can not realized changing information"
+    },
+    "setPassword": {
+      "title": "Set password",
+      "currentPassword": {
+        "label": "Current password",
+        "placeholder": "Enter your current password",
+        "validation": {
+          "required": "Current password is required",
+          "wrong_format": "Wrong format"
+        }
+      },
+      "newPassword": {
+        "label": "New password",
+        "placeholder": "Enter your new password",
+        "validation": {
+          "required": "New password is required",
+          "wrong_format": "Password must be at least 8 characters including alphabet, digit and special character."
+        }
+      },
+      "checkNewPassword": {
+        "label": "Check new password",
+        "placeholder": "Repeat your new password",
+        "validation": {
+          "required": "Check new password is required",
+          "wrong_format": "Passwords do not to match"
+        }
+      }
+    }
+  },
+  "detailed": {
+    "referralCode": {
+      "errorMessage": "Can not realized changing information"
+    }
+  }
+}

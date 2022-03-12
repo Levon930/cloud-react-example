@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext", "es6"],
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "paths": {
+      "@api": ["generated/graphql"],
+      "@components": ["components"],
+      "@components/*": ["components/*"],
+      "@hooks": ["hooks"],
+      "@hooks/*": ["hooks/*"],
+      "@pages": ["pages"],
+      "@pages/*": ["pages/*"],
+      "@utils": ["utils"],
+      "@utils/*": ["utils/*"],
+      "@constants": ["constants"],
+      "@constants/*": ["constants/*"],
+      "@layouts": ["layouts"],
+      "@layouts/*": ["layouts/*"],
+      "@helpers": ["helpers"],
+      "@store": ["store"],
+      "@store/*": ["store/*"],
+      "@app": ["app"]
+    }
+  }
+}
